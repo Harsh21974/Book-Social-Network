@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookSocial · Activate your account</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            background: #f2efe8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 36px 36px 32px 32px;
+            box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.20), 0 8px 24px -6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(220, 200, 180, 0.2);
+        }
+
+        /* ——— header ——— */
+        .header {
+            background: linear-gradient(145deg, #1e2b3c, #17222f);
+            padding: 28px 32px 22px;
+            position: relative;
+        }
+
+        .header::after {
+            content: "📖";
+            position: absolute;
+            right: 28px;
+            top: 18px;
+            font-size: 38px;
+            opacity: 0.25;
+            transform: rotate(-4deg);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f6efe6;
+        }
+
+        .brand-icon {
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-weight: 600;
+            font-size: 26px;
+            letter-spacing: -0.3px;
+            color: #f6efe6;
+        }
+
+        .brand-name span {
+            font-weight: 300;
+            color: #bfa98e;
+        }
+
+        .subhead {
+            color: #cdc0b0;
+            font-size: 14px;
+            font-weight: 400;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+            border-left: 2px solid #b8956e;
+            padding-left: 14px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* ——— body ——— */
+        .body-content {
+            padding: 34px 36px 30px;
+        }
+
+        .greeting {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2c3a;
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+        }
+
+        .greeting span {
+            background: linear-gradient(135deg, #3a281f, #5e3f2b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #3d3a36;
+            margin-top: 8px;
+            margin-bottom: 26px;
+            background: #f9f6f1;
+            padding: 14px 18px;
+            border-radius: 20px;
+            border: 1px solid #ede7de;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .message i {
+            font-style: normal;
+            display: inline-block;
+            background: #d9cdbc;
+            color: #2b1f16;
+            padding: 0 8px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            margin-right: 4px;
+        }
+
+        .code-box {
+            background: #f4efe8;
+            border-radius: 60px;
+            padding: 10px 10px 10px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            border: 1px solid #e0d4c6;
+            box-shadow: 0 4px 0 #d2c3b2;
+            margin: 24px 0 28px;
+        }
+
+        .activation-code {
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            color: #1c2a38;
+            font-family: 'Courier New', 'Fira Mono', monospace;
+            background: white;
+            padding: 4px 18px 4px 24px;
+            border-radius: 60px;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+            display: inline-block;
+        }
+
+        .code-hint {
+            font-size: 13px;
+            color: #6f5e4c;
+            background: #e6dbcf;
+            padding: 4px 16px 4px 14px;
+            border-radius: 40px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .code-hint span {
+            font-size: 18px;
+        }
+
+        .activation-link {
+            display: flex;
+            justify-content: center;
+            margin: 18px 0 10px;
+        }
+
+        .activation-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1e2f40, #0f1a26);
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 38px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 8px 18px -6px rgba(20, 40, 60, 0.3);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 215, 170, 0.2);
+        }
+
+        .activation-link a:hover {
+            background: linear-gradient(135deg, #253a4f, #14212e);
+            transform: scale(1.01);
+            box-shadow: 0 12px 24px -8px rgba(0, 20, 40, 0.4);
+            border-color: rgba(255, 215, 170, 0.3);
+        }
+
+        .activation-link a::after {
+            content: "→";
+            font-size: 22px;
+            transition: transform 0.2s ease;
+        }
+
+        .activation-link a:hover::after {
+            transform: translateX(5px);
+        }
+
+        .divider {
+            margin: 28px 0 14px;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #d6cbbc, transparent);
+        }
+
+        .footer-note {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 13px;
+            color: #7b6e60;
+            margin-top: 6px;
+        }
+
+        .footer-note .book-emoji {
+            font-size: 20px;
+            letter-spacing: 6px;
+            opacity: 0.6;
+        }
+
+        .footer-note small {
+            background: #f0ebe4;
+            padding: 4px 14px;
+            border-radius: 30px;
+            color: #54493e;
+        }
+
+        /* ——— responsive ——— */
+        @media (max-width: 480px) {
+            .body-content {
+                padding: 24px 20px 24px;
+            }
+
+            .header {
+                padding: 22px 20px 18px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .activation-code {
+                font-size: 28px;
+                letter-spacing: 4px;
+                padding: 2px 14px;
+            }
+
+            .code-box {
+                padding: 12px 16px;
+                border-radius: 40px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .code-hint {
+                align-self: flex-start;
+            }
+
+            .activation-link a {
+                padding: 14px 28px;
+                font-size: 16px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .greeting {
+                font-size: 20px;
+            }
+
+            .message {
+                font-size: 15px;
+                padding: 12px 14px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .activation-code {
+                font-size: 24px;
+                letter-spacing: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header with bookish mood -->
+    <div class="header">
+        <div class="brand">
+            <span class="brand-icon">📚</span>
+            <span class="brand-name">Book<span>Social</span></span>
+        </div>
+        <div class="subhead">  •  where stories connect us</div>
+    </div>
+
+    <!-- main content -->
+    <div class="body-content">
+        <!-- dynamic greeting -->
+        <div class="greeting">
+            Hello, <span th:text="${username}">reader</span> 👋
+        </div>
+
+        <div class="message">
+            <i>✨</i> You're one step away from joining our community of book lovers.
+            Use your personal activation code below or click the big button.
+        </div>
+
+        <!-- activation code block (with bookish style) -->
+        <div class="code-box">
+      <span class="activation-code">
+        <span th:text="${activation_code}">BKS-7842</span>
+      </span>
+            <span class="code-hint">
+        <span>🔐</span> your code
+      </span>
+        </div>
+
+        <!-- activation link (primary CTA) -->
+        <div class="activation-link">
+            <a th:href="${confirmation}" target="_blank">
+                <span>📖</span> Activate account
+            </a>
+        </div>
+
+        <!-- subtle divider -->
+        <hr class="divider">
+
+        <!-- footer with extra bookish vibe -->
+        <div class="footer-note">
+            <span class="book-emoji">📕 📗 📘</span>
+            <small>⚡ 24h activation link</small>
+            <span style="opacity:0.5;">•</span>
+            <small>📬 help@booksocial.io</small>
+        </div>
+
+        <!-- hidden note: the link uses th:href, but we keep a fallback -->
+        <div style="display: none;">confirmation link: <span th:text="${confirmation}">https://booksocial.dev/activate/abc123</span></div>
+    </div>
+    <!-- end body-content -->
+</div>
+<!-- end container -->
+</body>
+</html>
